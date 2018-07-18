@@ -78,3 +78,8 @@
     dest: /etc/systemd/system/keycloak.service
   notify:
     - reload systemd
+
+- name: Start Keycloak
+  service:
+    name: keycloak
+    state: started
