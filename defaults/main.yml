@@ -11,4 +11,5 @@ keycloak_checksums:
   '3.4.3.Final': sha1:f2b1272ab8d4413f408b444bc2108740845bc976
 
 keycloak_parent_install_dir: /usr/local
-
+admin_user: root
+admin_group: root
