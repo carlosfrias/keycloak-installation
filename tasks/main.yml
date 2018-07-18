@@ -50,6 +50,17 @@
     dest: '{{ item.d }}/{{ item.f }}'
     mode: '{{ item.m | default("0644") }}'
 
+
+- name: Setup permission for apigee installation home directory
+  become: yes
+  file:
+    path: '{{ keycloak_link_dir }}'
+    group: '{{ admin_group }}'
+    owner: '{{ admin_user }}'
+    mode: 0755
+    recurse: yes
+    state: directory
+
 - name: Create Keycloak User
   ignore_errors: true
   tags: ['add-user']
@@ -58,8 +69,8 @@
 - name: keycloak systemd setup
   tags: ['keycloak']
   template:
-    owner: root
-    group: root
+    owner: "{{ admin_user }}"
+    group: "{{ admin_group }}"
     mode: 0644
     backup: yes
     force: yes
