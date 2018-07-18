@@ -51,6 +51,7 @@
     mode: '{{ item.m | default("0644") }}'
 
 - name: Create Keycloak User
+  ignore_errors: true
   tags: ['add-user']
   shell: "/usr/local/keycloak/bin/add-user-keycloak.sh -u {{ user }} -p {{ password }}"
 
