@@ -1,10 +1,10 @@
 [Unit]
-Description=Jboss Application Server
+Description=Keycloak Server
 After=network.target
 
 [Service]
 Type=idle
-Environment=JBOSS_HOME={{ keycloak_link_dir }} JBOSS_LOG_DIR={{ keycloak_link_dir }}/standalone/log "JAVA_OPTS=-Xms1024m -Xmx20480m -XX:MaxPermSize=768m"
+Environment=JBOSS_HOME={{ keycloak_link_dir }}/ JBOSS_LOG_DIR={{ keycloak_link_dir }}/standalone/log "JAVA_OPTS=-Xms1024m -Xmx20480m -XX:MaxPermSize=768m"
 User=keycloak
 Group=keycloak
 ExecStart={{ keycloak_link_dir }}/bin/standalone.sh -b 0.0.0.0
