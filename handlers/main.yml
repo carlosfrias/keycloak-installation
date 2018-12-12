@@ -4,3 +4,8 @@
 - name: reload systemd
   become: yes
   command: systemctl daemon-reload
+
+- name: Start Keycloak
+  service:
+    name: keycloak
+    state: started
